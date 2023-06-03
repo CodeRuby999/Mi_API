@@ -7,4 +7,8 @@ const PeticionApi = () => {
     useEffect(() => {
         traerPersonajes();
       }, [paginacion]);
-    
+    const traerPersonajes = async () => {
+    try {
+        const res = await fetch(`https://swapi.dev/api/people/?page=${paginacion}`);
+        const respuesta = await res.json();
+        const auxPersonajes = respuesta.results;  
